@@ -1,0 +1,56 @@
+<ion-header class="headerinfo">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+      </ion-buttons>
+    <ion-title>View Participant</ion-title>
+    <div class="header_right">
+      <!-- <div class="searchopt">
+        <img class="searchcont" src="../../assets/searchopt.png">
+      </div> -->
+      <div class="notfication">
+        <span>1</span>
+        <img  src="../../assets/notf.png">
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="contentinfo">
+  <ion-grid class="def_padding_bottom">
+      <form>
+          <ion-row>
+              <ion-col>
+
+                <ion-list>
+                  <ion-list-header class="heading2" >
+                    Super Raffle
+                  </ion-list-header>
+                  <div class="ion-list_row" *ngFor="let list of items">
+                    <ion-item color="none" lines="none" class="listitem">
+                      <ion-label>
+                        <h2><span>Name</span> : {{list.first_name}} {{list.last_name}} </h2> 
+                        <p><span>Ticket Number</span> : #{{list.ticket_no}}</p>
+                      </ion-label>
+                    </ion-item>
+                  </div>
+                  <div class="ion-list_row" *ngIf="items.length==0">
+                    <ion-label >
+                      <h2 class="text2">No Data Found</h2>
+                  </ion-label>
+                   
+
+                   
+                  </div>
+                </ion-list>
+
+         
+
+              </ion-col>
+          </ion-row>
+      </form>
+
+  </ion-grid>
+
+</ion-content>

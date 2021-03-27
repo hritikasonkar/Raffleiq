@@ -1,0 +1,153 @@
+<ion-header class="headerinfo">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>Create Raffle</ion-title>
+    <div class="header_right">
+      <div class="searchopt">
+        <img class="searchcont" src="../../assets/searchopt.png">
+      </div>
+      <div class="notfication">
+        <span>1</span>
+        <img  src="../../assets/notf.png">
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="contentinfo">
+  <ion-grid class="def_padding_bottom">
+      <form [formGroup]="raffleForm" (ngSubmit)="formSubmit()">
+          <ion-row>
+              <ion-col>
+
+                  <ion-list class="bg-transparent adpadding">
+                    <div>
+                      <p class="lableinfo">Type</p>
+
+                      <ion-item color="none" lines="none" class="inputfield">
+                        <ion-select  formControlName="type_id"  id = "ddlpassword" (ionChange)="ShowHideDiv()"   class="custom-options inputtext" >
+                          
+                          
+                          
+                          <ion-select-option   value="1">Public</ion-select-option>
+                          <ion-select-option   value="2">Private</ion-select-option>
+                         
+                        </ion-select>
+                        
+                      </ion-item>
+                      
+                    </div>
+                    <div id="dvpassword" class="inputdetails" style="display: none">
+                      <p class="lableinfo">Password</p>
+                      <ion-item color="none" lines="none" class="inputfield">
+                        <ion-input  class="inputtext" formControlName="raffle_pasword" placeholder=""  type="Password"></ion-input>
+                    </ion-item>
+                  </div>
+                   
+
+                      <p class="lableinfo">Name</p>
+                      <ion-item color="none" lines="none" class="inputfield">
+                          <ion-input class="inputtext" formControlName="name" placeholder="" type="text"></ion-input>
+                      </ion-item>
+
+                      <p class="lableinfo">Description</p>
+                      <ion-item color="none" lines="none" class="inputfield">
+                          <ion-input class="inputtext"  formControlName="description"  placeholder="" type="text"></ion-input>
+                      </ion-item>
+                      <p class="lableinfo">Terms & Conditions</p>
+                      <ion-item color="none" lines="none" class="inputfield">
+                          <ion-input   formControlName="terms_condition" class="inputtext" placeholder="" type="text"></ion-input>
+                      </ion-item>
+
+                      <div class="row_inp">
+                        <div class="row_inp_col">
+
+                          <p class="lableinfo">Fees (USD)</p>
+                          <ion-item color="none" lines="none" class="inputfield">
+                              <ion-input    formControlName="fees" class="inputtext" placeholder="" type="number"></ion-input>
+                          </ion-item>
+                        </div>
+                        <div class="row_inp_col">
+                          <p class="lableinfo">No. of Winner</p>
+                          <ion-item color="none" lines="none" class="inputfield">
+                              <ion-input  type="text"  maxlength="10"  formControlName="no_of_winner"   class="inputtext" placeholder="" ></ion-input>
+                          </ion-item>
+                        </div>
+
+                      </div>
+                      <div class="row_inp2">
+                        <div class="eyeopt">
+                          <img class="fe_eye" src="../../assets/calendar.png">
+                      </div>
+                        <p class="lableinfo">Start Date</p>
+                        <ion-item color="none" lines="none" class="inputfield">
+                          <ion-input class="inputtext" type="text" placeholder=""
+                          formControlName="start_date" (click)="onExpiresOnDate('start_date');" ></ion-input>
+                            
+
+                            <!-- <ion-datetime  formControlName="end_date" class="inputtext" displayFormat="YYYY-MM-DD "    min="2020" max="2030-10-31"  ></ion-datetime> -->
+                          </ion-item>
+                          <div class="eyeopt">
+                            <img class="fe_eye" src="../../assets/calendar.png">
+                        </div>
+                        
+                          <p class="lableinfo">Start Time</p>
+                          <ion-item color="none" lines="none" class="inputfield timeicon">
+                            
+
+                            <ion-input class="inputtext" type="text" placeholder=""
+                            formControlName="start_time" (click)="onValidfromTime('start_time');" ></ion-input>
+                            <ion-icon  class="timeopt" name="time-outline" (click)="onValidfromTime('start_time');"></ion-icon>
+                          </ion-item>
+                         
+                          <p class="lableinfo">End Date</p>
+                          <ion-item color="none" lines="none" class="inputfield dateicon">
+                            
+
+                            <ion-input class="inputtext" type="text" placeholder=""
+                            formControlName="end_date" (click)="onExpiresOnDate('end_date');"  ></ion-input>
+                            <div class="eyeopt">
+                              <img class="fe_eye" src="../../assets/calendar.png">
+                          </div>
+                          </ion-item>
+                          <p class="lableinfo">End Time</p>
+                          <ion-item color="none" lines="none" class="inputfield timeicon" >
+                            
+
+                            <ion-input class="inputtext" type="text" placeholder=""
+                            formControlName="end_time" (click)="onValidfromTime('end_time');"  ></ion-input>
+                            <ion-icon  class="timeopt" name="time-outline" (click)="onValidfromTime('end_time');"></ion-icon>
+                          </ion-item>
+
+                          <div class="row_inp3">
+                              <div class="upload_pic">
+                                    <div class="upload_doc">
+                                      <img  *ngIf="captureImage ==null" src="../../assets/image-gallery.png" >
+                                      <img  *ngIf="captureImage" [src]="captureImage" >
+                                    </div>
+                                    <p class="upload_prof">
+                                      <span  (click)="selectImage()">Upload</span> or <span  (click)="selectImage()">Take Photo</span>
+                                    </p>
+                              </div>
+                          </div>
+
+                          <ion-item color="none" lines="none"  class="inputfield">
+                            <ion-label class="lableinfo">Allow Cash Payment.</ion-label>
+                            <ion-checkbox slot="start"  formControlName="cash_status"  checked="true"></ion-checkbox>
+                          </ion-item>
+                          
+                      </div>
+
+                      <ion-item color="none" lines="none">
+                        <button class="defbtn">Create</button>
+                    </ion-item>
+                  </ion-list>
+              </ion-col>
+          </ion-row>
+      </form>
+
+  </ion-grid>
+
+</ion-content>

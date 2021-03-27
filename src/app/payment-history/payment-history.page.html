@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+      </ion-buttons>
+    <ion-title>payment-history</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+  <ion-row class="table-heading">
+  <ion-col>Trans No</ion-col>
+  <ion-col>Raffle Name</ion-col>
+  <ion-col>Customer</ion-col>
+  <ion-col>Amount</ion-col>
+  </ion-row>
+  <ion-row class="table-body" *ngFor="let object of lists">
+  <ion-col>#{{object.ticket_no}}</ion-col>
+  <ion-col>{{object.first_name}}</ion-col>
+  <ion-col>{{object.raffle_name}}</ion-col>
+  <ion-col>${{object.fees}}</ion-col>
+  </ion-row>
+  <ion-row *ngIf="lists.length==0">
+    <ion-col class="not-fd">
+      <h2 class="text1">No Participant</h2>
+  </ion-col>
+
+  </ion-row>
+  <!-- <ion-row class="table-body">
+  <ion-col>#000000</ion-col>
+  <ion-col>Raffle 1</ion-col>
+  <ion-col>jassica</ion-col>
+  <ion-col>$10</ion-col>
+  </ion-row> -->
+  
+  </ion-grid>

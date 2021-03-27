@@ -1,0 +1,136 @@
+<ion-header class="headerinfo">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>My Raffle</ion-title>
+    <div class="header_right">
+      <div class="searchopt">
+        <img class="searchcont" src="../../assets/searchopt.png">
+      </div>
+      <div class="notfication">
+        <span> </span>
+        <img  src="../../assets/notf.png">
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="inner_content">
+  <ion-grid class="def_padding_bottom">
+    <ion-row>
+      <ion-col>
+        <div class="btn_opt">
+          <!-- <span class="active_view" >Public</span>
+          <span>Private</span> -->
+         
+          
+        </div>
+        <ion-segment class="btn_opt" color="none" [(ngModel)]="type" (ionChange)="segmentChanged($event)" scrollable>
+          <ion-segment-button value="upcomingRaffle" checked>
+            <ion-label>Upcoming Raffle</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="pastRaffle">
+            <ion-label>Past Raffle</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+    <ion-col>
+        <div class="filter_opt" [ngSwitch]="type"> 
+          <div *ngSwitchCase="'upcomingRaffle'">
+            <div class="segment_details">
+              
+              <div class="filter_des" >
+                <div class="filter_info">
+                  <div class="filter_item" *ngFor="let item of items;let i=index">
+                    <div class="item_pic">
+                      <img  [src]="item.image" >
+                    </div>
+                    <div class="item_des view_popup">
+                      <!-- <div class="notf_info" (click)="hide()" > -->
+                        <div class="notf_info" (click)="hide(i, item.sl_no)" >
+                        <img  src="../../assets/notf2.png" >
+                        <!-- <div *ngIf="hideMe" class="popupcontent_outer" -->
+                        <!-- <div *ngIf="hideMe == item.raffle_id" class="popupcontent_outer" >  -->
+                          <div *ngIf="itemId == item.sl_no && hideMe == true" class="popupcontent_outer" > 
+                          <div class="popupcontent">
+                            <p (click)="openView(item.raffle_id)">View Participant</p>
+                            <p (click)="paymentList(item.raffle_id)">Cash Payment</p>
+                            <p (click)="paymentPage(item.raffle_id)">Online Payment</p>
+                           
+                          </div>
+                          </div>
+
+                      </div>
+                      <h2 (click)="openDetails(item.raffle_id)">{{item.name}}</h2>
+                      <p (click)="openDetails(item.raffle_id)">Drowing on {{item.end_date}}</p>
+                    </div>
+                </div>
+                  
+                  
+                  
+  
+                </div>
+                <div  class="filter_item1" *ngIf="items.length==0">
+                  <ion-label >
+                    <h2 class="text1">No Data Found</h2>
+                </ion-label>
+
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+          <div *ngSwitchCase="'pastRaffle'">
+            <div class="segment_details">
+             
+              <div class="filter_des">
+                <div class="filter_info">
+                    <div class="filter_item" *ngFor="let list of pastLists" >
+                      <div class="item_pic">
+                       
+                        <img  [src]="list.image" (click)="openDetails(list.raffle_id)">
+                      </div>
+                      <div class="item_des">
+                        <div class="notf_info">
+                          <img  src="../../assets/notf2.png" (click)="openView(list.raffle_id)">
+                        </div>
+                       
+                        
+                        <h2>{{list.name}}</h2>
+                        <p (click)="openDetails(list.raffle_id)">No. of Entry : <strong>{{list.no_of_winner}}</strong></p>
+                        <p (click)="openDetails(list.raffle_id)">Drawing  Date : <strong>{{list.end_date}}</strong></p>
+                        <p (click)="openDetails(list.raffle_id)">Entry Fees : <strong>{{list.fees}}</strong></p>
+                      </div>
+
+                  </div>
+                  <div  class="filter_item1" *ngIf="pastLists.length==0">
+                    <ion-label >
+                      <h2 class="text1">No Data Found</h2>
+                  </ion-label>
+
+                  </div>
+                  
+  
+                </div>
+                
+              </div>
+            </div>
+          </div>
+      
+       
+        </div>
+    </ion-col>
+    </ion-row>
+
+
+  </ion-grid>
+
+
+</ion-content>

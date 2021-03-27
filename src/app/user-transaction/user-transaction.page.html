@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>Transaction History</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+  <ion-row class="table-heading">
+  <ion-col>Ticket No</ion-col>
+  <ion-col>Raffle Name</ion-col>
+  <ion-col>Amount</ion-col>
+  <ion-col>Paid Medium</ion-col>
+  <ion-col>Joining Date</ion-col>
+  </ion-row>
+  <ion-row class="table-body" *ngFor="let object of items">
+  <ion-col>#{{object.ticket_no}}</ion-col>
+  <ion-col>{{object.raffle_name}}</ion-col>
+  <!-- <ion-col>{{object.first_name}}</ion-col> -->
+  <ion-col>${{object.fees}}</ion-col>
+  <ion-col>
+    <span *ngIf="object.paid_medium==0"  >Paid Cash</span>  
+    <span *ngIf="object.paid_medium==1">Paid Online</span> </ion-col>
+  <ion-col>${{object.joining_date_time}}</ion-col>
+  </ion-row>
+  <ion-row *ngIf="items.length==0">
+    <ion-col class="not-fd">
+      <h2 class="text1">No Participant</h2>
+  </ion-col>
+
+  </ion-row>
+
+  
+  </ion-grid>
+  </ion-content>

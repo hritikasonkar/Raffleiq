@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  <ion-title>Dashboard</ion-title>
+  <div class="header_right">
+    <div class="searchopt">
+      <img class="searchcont" src="../../assets/searchopt.png">
+    </div>
+    <div class="notfication">
+      <span>1</span>
+      <img  src="../../assets/notf.png">
+    </div>
+  </div>
+</ion-toolbar>
+</ion-header>
+
+  <ion-content class="inner_content">
+    <ion-grid class="def_padding_bottom">
+      <ion-row>
+        <ion-col>
+            <div class="content_block">
+              <div class="filter_des">
+                <h2 class="heading">Today’s Raffle</h2>
+                <div class="filter_info">
+                  <div class="filter_item" *ngFor="let item of todayItems">
+                    <div class="item_pic">
+                      <img  [src]="item.image">
+                    </div>
+                    <div class="item_des">
+                      <h2>{{item.name}}</h2>
+                      <p>No. of Entry : {{item.no_of_winner}}</p>
+                      <p>Total Ticket Value : ${{item.fees}}</p>
+                    </div>
+                  </div>
+                  <div class="filter_info" *ngIf="todayItems.length==0">
+                    <ion-label >
+                      <h2 class="text">No Data Found</h2>
+                  </ion-label>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="content_block">
+              <div class="filter_des">
+                <h2 class="heading">Upcoming Raffle</h2>
+                <div class="filter_info">
+                    <div class="filter_item" *ngFor="let list of upcomingItems">
+                        <div class="item_pic">
+                          <img class="sort" [src]="list.image">
+                        </div>
+                        <div class="item_des">
+                          <h2>{{list.name}}</h2>
+                          <p>No. of Entry : {{list.no_of_winner}}</p>
+                        </div>
+                    </div>
+                    <div  class="filter_info" *ngIf="upcomingItems.length==0">
+                      <ion-label >
+                        <h2 class="text">No Data Found</h2>
+                    </ion-label>
+  
+                    </div>
+                </div>
+              </div>
+            </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+</ion-content>

@@ -1,0 +1,95 @@
+<ion-tabs class="tabscontent" *ngIf="user_type==2">
+  <ion-tab-bar slot="bottom">
+  <ion-tab-button tab="business-dashboard">
+    <div class="tab_content">
+      <div class="tab_icons">
+        <img class="tabdef_icon" src="../../assets/home.png">
+        <img class="tabdef_icon_hover" src="../../assets/home_hover.png">
+      </div>
+      <div class="tab_lable">
+        <ion-label>Home</ion-label>
+      </div>
+    </div>
+  </ion-tab-button>
+
+ 
+
+  <ion-tab-button tab="myraffle">
+    <div class="tab_content">
+      <div class="tab_icons">
+        <img class="tabdef_icon" src="../../assets/ticket.png">
+        <img class="tabdef_icon_hover" src="../../assets/ticket_hover.png">
+      </div>
+      <div class="tab_lable">
+        <ion-label>My Raffle</ion-label>
+      </div>
+    </div>
+    </ion-tab-button>
+    
+
+  <ion-tab-button tab="createraffle">
+    <div class="tab_content">
+      <div class="tab_icons">
+        <img class="tabdef_icon" src="../../assets/createaccount.png">
+        <img class="tabdef_icon_hover" src="../../assets/createaccount_hover.png">
+      </div>
+      <div class="tab_lable">
+        <ion-label>Create</ion-label>
+      </div>
+    </div>
+
+  </ion-tab-button>
+
+
+  </ion-tab-bar>
+ </ion-tabs>
+
+ 
+ <ion-tabs class="tabscontent" *ngIf="user_type==1">
+  <ion-tab-bar slot="bottom">
+  <ion-tab-button tab="home">
+    <div class="tab_content">
+      <div class="tab_icons">
+        <img class="tabdef_icon" src="../../assets/home.png">
+        <img class="tabdef_icon_hover" src="../../assets/home_hover.png">
+      </div>
+      <div class="tab_lable">
+        <ion-label>Home</ion-label>
+      </div>
+    </div>
+  </ion-tab-button>
+  <ion-tab-button>
+    <ion-tab-button tab="myticket">
+  <div class="tab_content">
+    <div class="tab_icons">
+      <img class="tabdef_icon" src="../../assets/ticket.png">
+      <img class="tabdef_icon_hover" src="../../assets/ticket_hover.png">
+    </div>
+    <div class="tab_lable">
+      <ion-label>My Ticket</ion-label>
+    </div>
+  </div>
+  </ion-tab-button>
+</ion-tab-button>
+  <ion-tab-button>
+    <!-- <ion-tab-button tab="profile"> -->
+    <div class="tab_content">
+      <div class="tab_icons">
+        <img class="tabdef_icon" src="../../assets/profile.png">
+        <img class="tabdef_icon_hover" src="../../assets/profile_hover.png">
+      </div>
+      <div class="tab_lable">
+        <ion-label>Profile</ion-label>
+      </div>
+    </div>
+
+  </ion-tab-button>
+
+  
+    
+
+  
+
+
+  </ion-tab-bar>
+ </ion-tabs>

@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <!-- <ion-title>My Ticket</ion-title> -->
+    <div class="header_right">
+      <div class="searchopt">
+        <img class="searchcont" src="../../assets/searchopt.png">
+      </div>
+      <div class="notfication">
+        <span>1</span>
+        <img  src="../../assets/notf.png">
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="inner_content">
+  <ion-grid class="def_padding_bottom">
+    <ion-row>
+      <ion-col>
+        <div class="btn_opt">
+          <!-- <span class="active_view" >Public</span>
+          <span>Private</span> -->
+         
+          
+        </div>
+        <ion-segment class="btn_opt" color="none" [(ngModel)]="type" (ionChange)="segmentChanged($event)" scrollable>
+          <ion-segment-button value="upcomingRaffle" checked>
+            <ion-label>Upcoming Raffle</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="pastRaffle">
+            <ion-label>Past Raffle</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+    <ion-col>
+        <div class="filter_opt" [ngSwitch]="type"> 
+          <div *ngSwitchCase="'upcomingRaffle'">
+            <div class="segment_details">
+              
+              <div class="filter_des">
+                <div class="filter_info">
+                    <div class="filter_item" *ngFor="let item of items">
+                        <div class="item_pic">
+                          <img  [src]="item.image">
+                        </div>
+                        <div class="item_des">
+                          <h2>{{item.name}}</h2>
+                          <p>Drawing  Date : {{item.end_date}}</p>
+                          <p>Ticket Number : {{item.ticket_no}}</p>
+                          <div class="message_icon">
+                            <span><img  src="../../assets/message.png">
+                              Message</span>
+                          </div>
+                        </div>
+                    </div>
+                    <div  class="filter_item" *ngIf="items.length==0">
+                      <ion-label >
+                        <h2 class="text1">No Data Found</h2>
+                    </ion-label>
+    
+                    </div>
+  
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+          <div *ngSwitchCase="'pastRaffle'">
+            <div class="segment_details">
+             
+              <div class="filter_des">
+                <div class="filter_info">
+                  <div class="filter_item" *ngFor="let list of lists">
+                      <div class="item_pic">
+                        <img  [src]="list.image">
+                      </div>
+                      <div class="item_des">
+                        <h2>{{list.name}}</h2>
+                        <p>Drawing  Date : {{list.end_date}}</p>
+                        <p>Ticket Number : {{list.ticket_no}}</p>
+                      </div>
+                      <div class="winadd" *ngIf="list.winning_status==1">
+                        <span><img  src="../../assets/trophy1.png">
+                          WIN</span>
+                      </div>
+                  </div>
+                  <div  class="filter_item" *ngIf="lists.length==0">
+                    <ion-label >
+                      <h2 class="text1">No Data Found</h2>
+                  </ion-label>
+    
+                  </div>
+                
+
+              </div>
+            
+              </div>
+             
+            </div>
+          </div>
+      
+       
+        </div>
+    </ion-col>
+    </ion-row>
+
+
+  </ion-grid>
+
+
+</ion-content>

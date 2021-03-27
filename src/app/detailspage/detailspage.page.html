@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+      </ion-buttons>
+    <ion-title>Detailspage</ion-title>
+    <div class="header_right">
+      <div class="searchopt">
+        <img class="searchcont" src="../../assets/searchopt.png">
+      </div>
+      <div class="notfication">
+        <span>1</span>
+        <img  src="../../assets/notf.png">
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="inner_content">
+  <ion-grid class="def_padding_bottom">
+    <ion-row>
+      <ion-col>
+        <div class="inner_info" >
+          <div class="add_pic">
+            <img  [src]="image">
+            <!-- <img  src="../../assets/add_pic.png"> -->
+          </div>
+          <h3>{{name}}</h3>
+          <p>{{description}}.</p>
+          <p>No. of Entry : {{noEntry}}</p>
+          <p>Drawing  Date : {{start_date}}</p>
+          <p>Entry Fees : {{fees}} USD</p>
+
+          <!-- <h3>Super Raffle</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolorn voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          <p>No. of Entry : 200</p>
+          <p>Drawing  Date : 22 Aug, 2020</p>
+          <p>Entry Fees : $50</p> -->
+
+          <button class="defbtn" *ngIf="join_staus==0"  (click)="join()" >Purchase Entry</button>
+          <span class="join_sts" *ngIf="join_staus==1"   >Already Joined</span>
+        <!-- <button class="defbtn" *ngIf="join_staus==1"   >Joined</button> -->
+         
+         
+
+
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

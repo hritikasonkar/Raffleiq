@@ -1,0 +1,101 @@
+<ion-content class="contentinfo">
+    <div class="logininfo">
+
+    
+    <ion-grid class="def_padding_bottom">
+        <form [formGroup]="loginForm" >
+            <ion-row>
+                <ion-col>
+                    <h2 class="heading">Login</h2>
+
+                    <ion-list class="bg-transparent adpadding">
+
+                         <!-- <ion-item color="none" lines="none" class="inputfield">
+                            <div class="social_add">
+                                <span>
+                                    <img class="fe_eye" src="../../assets/google.png">
+                                </span>
+                                <span>
+                                    <img class="fe_eye" src="../../assets/facebook.png">
+                                </span>
+                            </div>
+                        </ion-item>  -->
+
+                         <!-- <ion-item color="none" lines="none">
+                            <div class="defpages ion-text-center">
+                                <span class="def_text_color">or Login with Email</span>
+                            </div>
+                        </ion-item>  -->
+
+                        <p class="lableinfo">Email</p>
+                        <ion-item color="none" lines="none" class="inputfield">
+                            <ion-input  formControlName="email" class="inputtext" placeholder="Email" type="email"></ion-input>
+                        </ion-item>
+                        <div  class="message" *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.touched && loginForm.controls.email.hasError('pattern')">Please enter a valid email.
+                        </div>
+                        <div class="inputdetails">
+                            <p class="lableinfo">Password</p>
+                            <div class="eyeopt">
+                                <!-- <img class="fe_eye" *ngIf="password_type=='text'" src="../../assets/fe_eye.png"  (click)="showhidePassword()">
+                                <img class="fe_eye"  [name]="passwordIcon" *ngIf="password_type=='password'" src="../../assets/fe_eye.png"  (click)="showhidePassword()"> -->
+                                <ion-icon *ngIf="password_type=='text'" name="eye" item-right (click)="showhidePassword()"  class="show-hide-eye"  ></ion-icon>  
+            <ion-icon *ngIf="password_type=='password'" name="eye-off" item-right (click)="showhidePassword()"  class="show-hide-eye" ></ion-icon> 
+                              
+                            </div>
+                            <ion-item color="none" lines="none" class="inputfield">
+                                <ion-input  formControlName="password" class="inputtext" placeholder="Password" [type]="password_type"></ion-input>
+                            </ion-item>
+                        </div>
+
+                        <div  class="message" *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.touched" >Password must be filled out and should contain 6 characters.
+                        </div>
+
+                        <ion-item color="none" lines="none">
+                            <div class="defpages ion-text-left">
+                                <span class="def_text_color" (click)="popupPassword()">Forgot Password?</span>
+                            </div>
+                        </ion-item>
+                        <ion-item color="none" lines="none">
+                            <button class="defbtn" (click)="doLogin()" [disabled]="!loginForm.valid">Submit</button>
+                        </ion-item>
+                        <ion-item color="none" lines="none">
+                            <div class="defpages ion-text-center">
+                                <span class="def_text_color">Don’t have an account?  <strong (click)="goToRegistrationpage()" >Register</strong></span>
+                            </div>
+                        </ion-item>
+                    </ion-list>
+                </ion-col>
+            </ion-row>
+                </form>
+                <form [formGroup]="forgetForm">
+
+                    <div *ngIf="passwordContent" class="popup_outer">
+                        <div class="popup_area">
+
+                            <div class="popup_details">
+                                <div class="close_popup" (click)="closePopupPassword()">
+                                    <img class="fe_eye" src="../../assets/plus.png">
+                                </div>
+                                <h2 class="heading">Forgot Your Password?</h2>
+                                <ion-list class="bg-transparent adpadding">
+                                    <p class="lableinfo">Enter Your Email Id</p>
+                                    <ion-item color="none" lines="none" class="inputfield">
+                                        <ion-input class="inputtext" formControlName="email"  placeholder="" type="email"></ion-input>
+                                    </ion-item>
+                                    <ion-item color="none" lines="none">
+                                        <button class="defbtn" (click)="frgtPass()" [disabled]="!forgetForm.valid">Submit</button>
+                                    </ion-item>
+
+                                </ion-list>
+                            </div>
+                        </div>
+                    </div>
+
+               
+            
+        </form>
+
+    </ion-grid>
+</div>
+
+</ion-content>

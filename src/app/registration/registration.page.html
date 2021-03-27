@@ -1,0 +1,130 @@
+<ion-content class="contentinfo">
+    <ion-grid class="def_padding_bottom">
+        <form [formGroup]="registrationForm">
+            <ion-row>
+                <ion-col>
+                    <h2 class="heading">Register</h2>
+
+                    <ion-list class="bg-transparent adpadding">
+
+                        <!-- <ion-item color="none" lines="none" class="inputfield">
+                            <div class="social_add">
+                                <span>
+                                  <img class="fe_eye" src="../../assets/google.png">
+                              </span>
+                                <span>
+                                  <img class="fe_eye" src="../../assets/facebook.png">
+                              </span>
+                            </div>
+                        </ion-item> -->
+
+                        <!-- <ion-item color="none" lines="none">
+                            <div class="defpages ion-text-center">
+                                <span class="def_text_color">or Register with Email</span>
+                            </div>
+                        </ion-item> -->
+
+                        <p class="lableinfo">First Name</p>
+                        <ion-item color="none" lines="none" class="inputfield">
+                            <ion-input formControlName="first_name" class="inputtext" placeholder="" type="text"></ion-input>
+                        </ion-item>
+                        <div class="message"
+                        
+                        *ngIf="registrationForm.controls.first_name.invalid && registrationForm.controls.first_name.touched || registrationForm.controls.first_name.hasError('pattern')"
+                      >
+                        Please enter a valid first name.
+                      </div>
+
+                        <p class="lableinfo">Last Name</p>
+                        <ion-item color="none" lines="none" class="inputfield">
+                            <ion-input formControlName="last_name" class="inputtext" placeholder="" type="text"></ion-input>
+                        </ion-item>
+                        <div class="message"
+                        *ngIf="registrationForm.controls.last_name.invalid && registrationForm.controls.last_name.touched || registrationForm.controls.last_name.hasError('pattern')"
+                      >
+                        Please enter a valid last name.
+                      </div>
+                        <p class="lableinfo">Email</p>
+                        <ion-item color="none" lines="none" class="inputfield">
+                            <ion-input   formControlName="email" class="inputtext" placeholder="" type="text"></ion-input>
+                        </ion-item>
+                        <div  class="message" *ngIf="registrationForm.controls.email.invalid && registrationForm.controls.email.touched && registrationForm.controls.email.hasError('pattern')">Please enter a valid email.
+                        </div>
+
+                        <div class="inputdetails">
+                            <p class="lableinfo">Password</p>
+                            <div class="eyeopt">
+                                <!-- <img class="fe_eye" src="../../assets/fe_eye.png"> -->
+                                
+                                <ion-icon *ngIf="password_type=='text'" name="eye" item-right (click)="showhidePassword()"  class="show-hide-eye"  ></ion-icon>  
+            <ion-icon *ngIf="password_type=='password'" name="eye-off" item-right (click)="showhidePassword()"  class="show-hide-eye" ></ion-icon> 
+                            </div>
+                            <ion-item color="none" lines="none" class="inputfield">
+                                <ion-input formControlName="password" class="inputtext" placeholder="" [type]="password_type" type="Password"></ion-input>
+                            </ion-item>
+                            <div  class="message" *ngIf="registrationForm.controls.password.invalid && registrationForm.controls.password.touched" >Password must be filled out and should contain 6 characters.
+                            </div>
+                        </div>
+
+                        <div class="inputdetails">
+                            <p class="lableinfo">Confirm Password</p>
+                            <div class="eyeopt">
+                                <!-- <img class="fe_eye" src="../../assets/fe_eye.png"> -->
+                                <ion-icon *ngIf="passwordType=='text'" name="eye" item-right (click)="showhide()"  class="show-hide-eye"  ></ion-icon>  
+                                <ion-icon *ngIf="passwordType=='password'" name="eye-off" item-right (click)="showhide()"  class="show-hide-eye" ></ion-icon> 
+                            
+                                
+                            </div>
+                            <ion-item color="none" lines="none" class="inputfield">
+                                <ion-input formControlName="re_password" class="inputtext" placeholder="" [type]="passwordType" type="Password" ></ion-input>
+                            </ion-item>
+                            <div class="message" *ngIf="registrationForm.get('re_password').hasError('equalTo') && registrationForm.get('re_password').touched">
+                                Password Mismatch
+                                </div>
+                        </div>
+                        <p class="lableinfo">Mobile</p>
+                        <ion-item color="none" lines="none" class="inputfield">
+                            <ion-input  formControlName="mobile_no" class="inputtext" placeholder="" type="number"></ion-input>
+                        </ion-item>
+                        <div class="message" *ngIf="registrationForm.controls.mobile_no.invalid && registrationForm.controls.mobile_no.touched && registrationForm.controls.mobile_no.hasError('pattern')">
+                            Mobile number length must be 10 digit.
+                          </div>
+                        <ion-item color="none" lines="none">
+                            <button class="defbtn" [disabled]="!registrationForm.valid" (click)="registration()">Submit</button>
+                        </ion-item>
+                        <ion-item color="none" lines="none">
+                            <div class="defpages ion-text-center">
+                                <span class="def_text_color">Already have an account?  <strong (click)="goTologinpage()" >Login</strong></span>
+                            </div>
+                        </ion-item>
+                    </ion-list>
+
+                    <div *ngIf="passwordContent" class="popup_outer">
+                        <div class="popup_area">
+
+                            <div class="popup_details">
+                                <div class="close_popup" (click)="closePopupPassword()">
+                                    <img class="fe_eye" src="../../assets/plus.png">
+                                </div>
+                                <h2 class="heading">Forgot Your Password?</h2>
+                                <ion-list class="bg-transparent adpadding">
+                                    <p class="lableinfo">Enter Your Email Id</p>
+                                    <ion-item color="none" lines="none" class="inputfield">
+                                        <ion-input class="inputtext" placeholder="raffle@gmail.com" type="email"></ion-input>
+                                    </ion-item>
+                                    <ion-item color="none" lines="none">
+                                        <button class="defbtn" (click)="gotoHomePage()">Submit</button>
+                                    </ion-item>
+
+                                </ion-list>
+                            </div>
+                        </div>
+                    </div>
+
+                </ion-col>
+            </ion-row>
+        </form>
+
+    </ion-grid>
+
+</ion-content>

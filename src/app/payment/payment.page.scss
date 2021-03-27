@@ -1,0 +1,351 @@
+ion-content.contentinfo {
+    position: relative;
+    --background: #fff;
+}
+
+ion-item {
+    --padding-end: 0px;
+    --padding-start: 0px;
+    --inner-padding-end: 0px;
+}
+
+ion-list {
+    background: transparent !important;
+    padding: 0px 15px;
+}
+ion-select.custom-options {
+    width: 100%;
+}
+ion-select.custom-options.inputtext {
+    height: 50px;
+}
+ion-datetime.inputtext {
+    width: 100%;
+    height: 50px;
+    line-height: 43px;
+}
+.heading {
+    text-align: center;
+    font-size: 25px;
+    padding: 10px 0px 15px;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 600;
+}
+
+.ion-item {
+    text-align: center;
+    background: transparent !important;
+    border-radius: 13px !important;
+}
+
+.inputtext {
+    padding: 5px 15px !important;
+    text-align: left;
+    background: #fff !important;
+    --background: #fff !important;
+    border-radius: 10px !important;
+    box-shadow: 0px 0px 5px transparent;
+    margin: 1px 0px 10px;
+    font-size: 15px;
+    color: #444444;
+    font-weight: 400;
+    font-family: 'Work Sans', sans-serif;
+    // text-transform: uppercase;
+    border: 1px solid #f0f0f0;
+    font-weight: 500;
+    text-align: left;
+}
+.row_inp_col{
+    position: relative;
+}
+
+.inputfield2 {
+    padding: 2px 15px !important;
+    margin-bottom: 10px;
+}
+
+.inputfield {
+    position: relative;
+}
+
+.errormassage {
+    color: red;
+}
+
+.defbtn {
+    color: #fff;
+    padding: 15px 10px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
+    width: 100%;
+    margin: 5px 0% 15px;
+    text-transform: uppercase;
+    background: #fd5c62;
+    border: 2px solid #fd5c62;
+    &:hover {
+        background: #fd5c62;
+        border: 2px solid #fd5c62;
+        color: #fff;
+        opacity: 0.7;
+    }
+}
+
+ion-label {
+    color: #949494;
+    font-size: 14px;
+}
+
+.lableinfo {
+    color: #949494;
+    font-size: 15px;
+    padding: 0px;
+    margin: 6px 4px;
+}
+
+ion-input {
+    --placeholder-color: #949494;
+    --placeholder-opacity: 1;
+    font-weight: 400;
+}
+
+.contentinfo .userpic {
+    width: 130px;
+    display: block;
+    margin: 20px auto 50px;
+}
+
+.defpages.ion-text-center {
+    width: 100%;
+    color: #767676;
+}
+
+.defpages.ion-text-center span strong {
+    color: #fd5c62;
+}
+
+.defpages.ion-text-left {
+    width: 100%;
+}
+
+.defpages.ion-text-left span {
+    text-align: right;
+    width: 100%;
+    color: #767676;
+    display: block;
+}
+
+.inputdetails {
+    position: relative;
+}
+
+.eyeopt {
+    position: absolute;
+    right: 11px;
+    top: 41px;
+    z-index: 100;
+    width: 21px;
+    pointer-events: none;
+}
+
+.fe_eye {
+    color: #000 !important;
+}
+
+.social_add {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0px 0px 10px;
+}
+
+.social_add span {
+    background: #edebff;
+    flex: 0 0 48%;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.social_add span img {
+    width: 42px;
+    padding: 7px;
+}
+
+.row_inp {
+    display: flex;
+    justify-content: space-between;
+}
+.row_inp_col {
+    max-width:90px;
+    p{
+        &.lableinfo{
+            font-size: 12px;
+        }
+    }
+    
+}
+
+
+.row_inp2 {
+    position: relative;
+}
+
+.row_inp3 {
+    border: 1px solid #d8d8d8;
+    padding: 15px;
+    text-align: center;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+.upload_doc img {
+    width: 71px;
+    height: 71px;
+    border-radius: 6px;
+}
+.row_inp3 p {
+    padding: 0px;
+    margin: 5px;
+}
+.row_inp3 p span {
+    color: #2525ff;
+}
+// popup
+.popup_outer {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background: rgb(60 60 60 / 68%);
+    width: 100%;
+    height: 100vh;
+}
+
+.popup_area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.popup_details {
+    background: #fff;
+    padding: 8px;
+    width: 89%;
+    max-width: 590px;
+    margin: 0px auto;
+    position: relative;
+    border-radius: 10px
+}
+
+.close_popup {
+    position: absolute;
+    right: 7px;
+    width: 32px;
+    top: 7px;
+}
+
+ion-grid.def_padding_bottom {
+    padding: 0px !important;
+}
+
+.popup_details h2.heading {
+    padding: 20px 0 !important;
+    font-size: 18px;
+    margin: 0px;
+}
+.card_info_details {
+    border-radius: 10px;
+    padding: 7px 15px;
+    box-shadow: 0px 0px 15px #eaeaea;
+    margin: 10px 0;
+}
+
+.cvvicon {
+    position: absolute;
+    right: 11px;
+    top: 48px;
+    z-index: 100;
+    width: 21px;
+    pointer-events: none;
+}
+.card_section {
+    background: #3E44C9 url(../../assets/card.png) no-repeat center center;
+    border-radius: 10px;
+    padding: 20px 20px;
+    color: #fff;
+    margin: 10px 0;
+    position: relative;
+    background-size: 136px;
+    position: relative;
+    .checkopt_card{
+        position: absolute;
+        right: 36px;
+        bottom: -16px;
+        width: 33px;
+    }
+
+    h2{
+        padding: 0px;
+        font-size: 20px;
+        font-weight: 500;
+        margin: 0px 0px 15px;
+    }
+    h3{
+        padding: 0px;
+        margin: 0px; 
+        font-size: 18px;
+        font-weight: 500;
+
+    }
+    p{
+        padding: 0px;
+        margin: 0px 0 5px;   
+        color: #fff;
+
+    }
+}
+
+ion-toggle {
+    --background: rgb(253 92 98 / 63%);
+    --background-checked: rgb(253 92 98 / 63%);
+
+    --handle-background: #fd5c62;
+    --handle-background-checked: #fd5c62;
+    --handle-width: 20px;
+    --handle-height: 20px;
+
+    --border-radius: 14px;
+    --handle-border-radius: 50%;
+    --handle-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    --handle-width: 20px;
+    --handle-height: 20px;
+    --handle-max-height: calc(100% + 6px);
+    --handle-spacing: 0;
+    --handle-transition: transform 160ms cubic-bezier(0.4, 0, 0.2, 1), background-color 160ms cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 12px 0px;
+    width: 36px;
+    height: 14px;
+    contain: strict;
+    overflow: inherit;
+}
+
+.card_type {
+    padding: 10px 0 0;
+    h3{
+        font-size: 18px;
+    }
+}
+.card_type_opt {
+    display: flex;
+    align-items: center;
+}
+.redioopt{
+    display: flex;
+    align-items: center;    
+}
+.lableinfo2{
+    color: #949494;
+    font-size: 15px;
+    padding: 0px;
+    margin: 0px 5px 0 0;
+}

@@ -1,0 +1,22 @@
+.table-heading{
+    background: #777;
+    align-items: center;
+    padding: 4px 0px;
+    ion-col{
+        color: #ffffff;
+    }
+}
+.table-body{
+    padding: 4px 0px;
+    align-items: center;
+    &:nth-child(odd){
+        background: #f2f2f2;
+    }
+}
+.not-fd{
+    align-items: center;
+    min-height: 60vh;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}

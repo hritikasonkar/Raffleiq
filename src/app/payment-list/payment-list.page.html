@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+      </ion-buttons>
+    <ion-title>Payment-List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+  <ion-row class="table-heading">
+  <ion-col>Trans No</ion-col>
+  <ion-col>Raffle Name</ion-col>
+  <ion-col>Customer</ion-col>
+  <ion-col>Amount</ion-col>
+  <ion-col>Action</ion-col>
+  </ion-row>
+  <ion-row class="table-body" *ngFor="let object of array">
+  <ion-col>#{{object.ticket_no}}</ion-col>
+  <ion-col>{{object.raffle_name}}</ion-col>
+  <ion-col>{{object.first_name}}</ion-col>
+  <ion-col>${{object.fees}}</ion-col>
+  <ion-col>
+  <span *ngIf="object.joining_status==0" (click)="approve(object.raffle_participant_id)" ><button>Approve</button></span>  
+  <span *ngIf="object.joining_status==1"><button>Approved</button></span> 
+</ion-col>
+  </ion-row>
+  <ion-row *ngIf="array.length==0" >
+    <ion-col class="not-fd">
+      <h2 class="text1">No Participant</h2>
+    </ion-col>
+     
+  
+
+  </ion-row>
+ 
+  
+  </ion-grid>

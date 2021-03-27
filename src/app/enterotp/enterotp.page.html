@@ -1,0 +1,45 @@
+<ion-content class="contentinfo">
+    <ion-grid class="def_padding_bottom">
+        <!-- <form [formGroup]="otpForm"> -->
+           
+            <ion-row>
+                <ion-col>
+                    <h2 class="heading">Enter Your OTP</h2>
+
+                    <ion-list class="bg-transparent adpadding">
+
+                        <div class="otp_count">
+                            <ion-item color="none" lines="none" class="inputfield">
+                                <ion-input class="inputtext" #Field1 (keyup)="gotoNextField(Field2)"   [(ngModel)]="otp1"   placeholder=""  maxlength="1" type="number"  ></ion-input>
+                            </ion-item>
+                            <ion-item color="none" lines="none" class="inputfield">
+                                <ion-input class="inputtext" #Field2 (keyup)="gotoNextField(Field3)"  [(ngModel)]="otp2"   placeholder=""   maxlength="1" type="number" ></ion-input>
+                            </ion-item>
+                            <ion-item color="none" lines="none" class="inputfield">
+                                <ion-input class="inputtext" #Field3 (keyup)="gotoNextField(Field4)"  [(ngModel)]="otp3"   placeholder=""   maxlength="1" type="number" ></ion-input>
+                            </ion-item>
+                            <ion-item color="none" lines="none" class="inputfield">
+                                <ion-input class="inputtext"  #Field4   [(ngModel)]="otp4" placeholder="" type="number"  maxlength="1" ></ion-input>
+                            </ion-item>
+                        </div>
+
+                        <ion-item color="none" lines="none">
+                            <div class="defpages ion-text-center">
+                                <span class="def_text_color" (click)="resend()">Resend OTP</span>
+                            </div>
+                        </ion-item>
+
+
+                        <ion-item color="none" lines="none">
+                            <button class="defbtn"  (click)="otp()">Submit</button>
+                        </ion-item>
+                    </ion-list>
+
+
+                </ion-col>
+            </ion-row>
+        
+
+    </ion-grid>
+
+</ion-content>

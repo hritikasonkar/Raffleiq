@@ -1,0 +1,85 @@
+ion-content.contentinfo {
+    position: relative;
+    --background: #5b3deb url(../../assets/bg1.jpg) no-repeat center center / cover;
+}
+
+ion-list {
+    background: transparent !important;
+    padding: 0px 15px;
+}
+
+ion-row {
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+ion-item {
+    --padding-end: 0px;
+    --padding-start: 0px;
+    --inner-padding-end: 0px;
+}
+
+ion-col {
+    flex: inherit;
+}
+
+.contentinfo .userpic {
+    width: 130px;
+    display: block;
+    margin: 20px auto 50px;
+}
+
+.errormassage {
+    color: red;
+}
+
+.defbtn {
+    color: #fd5c62;
+    padding: 15px 10px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
+    width: 100%;
+    margin: 5px 0% 15px;
+    text-transform: uppercase;
+    background: #fff;
+    border: 2px solid #fff;
+    &:hover {
+        background: #fd5c62;
+        border: 2px solid #fd5c62;
+        color: #fff;
+    }
+}
+
+.defbtn2 {
+    color: #fff;
+    padding: 15px 10px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    width: 100%;
+    margin: 5px 0%;
+    border: 2px solid #fff;
+    text-transform: uppercase;
+    background: transparent;
+    &:hover {
+        background: #fd5c62;
+        border: 2px solid #fd5c62;
+        color: #fff;
+    }
+}
+
+ion-item {
+    --highlight-color-focused: none;
+}
+
+@media(max-width:360px) {
+    .defbtn,
+    .defbtn2 {
+        font-size: 15px;
+    }
+}

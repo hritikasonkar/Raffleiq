@@ -1,0 +1,154 @@
+<ion-header class="headerinfo">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <!-- <ion-title>Home</ion-title> -->
+    <div class="header_right">
+      <div class="searchopt">
+        <img class="searchcont" src="../../assets/searchopt.png">
+      </div>
+      <div class="notfication">
+        <span>1</span>
+        <img  src="../../assets/notf.png">
+      </div>
+    </div>
+   
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content class="inner_content">
+  <ion-grid class="def_padding_bottom">
+    <ion-row>
+      <ion-col>
+        <div class="btn_opt">
+          <!-- <span class="active_view" >Public</span>
+          <span>Private</span> -->
+         
+          
+        </div>
+        <ion-segment class="btn_opt" color="none" [(ngModel)]="type" (ionChange)="segmentChanged($event)" scrollable>
+          <ion-segment-button value="public" checked>
+            <ion-label>Public</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="private">
+            <ion-label>Private</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+    <ion-col>
+        <div class="filter_opt" [ngSwitch]="type"> 
+          <div *ngSwitchCase="'public'">
+            <div class="segment_details">
+              <div class="filter_icon">
+                <span class="active_view" >
+                  <img class="sort" src="../../assets/sort.png" >
+                  <img class="filter" src="../../assets/filter.png">
+                </span>
+              </div>
+              <div class="filter_des">
+                <div class="filter_info">
+                    <div class="filter_item" *ngFor="let list of rafflists" (click)="openDetails(list.raffle_id)">
+                        <div class="item_pic">
+                          <img  [src]="list.image">
+                        </div>
+                        <div class="item_des">
+                          <div class="notf_info">
+                            <img  src="../../assets/notf2.png">
+                          </div>
+                          <h2>{{list.name}}</h2>
+                          <p>No. of Entry : <strong>{{list.no_of_winner}}</strong></p>
+                          <p>Drawing  Date : <strong>{{list.end_date}}</strong></p>
+                          <p>Entry Fees : <strong>${{list.fees}}</strong></p>
+                        </div>
+                    </div>
+                    <div  class="filter_item1" *ngIf="rafflists.length==0">
+                      <ion-label >
+                        <h2 class="text1">No Data Found</h2>
+                    </ion-label>
+
+                    </div>
+                   
+  
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+          <div *ngSwitchCase="'private'">
+            <!-- <div class="click" (click)="presentAlert2()">click </div> -->
+            <div class="segment_details">
+              <div class="filter_icon">
+                <span class="active_view" >
+                  <img class="sort" src="../../assets/sort.png">
+                  <img class="filter" src="../../assets/filter.png">
+                </span>
+              </div>
+              <div class="filter_des">
+                <div class="filter_info">
+                  <div class="filter_item" *ngFor="let item of privateList" (click)="popupPassword(item.raffle_id)">
+                    <!-- <div class="filter_item" *ngFor="let item of privateList" (click)="popupPassword(item.raffle_id)" (click)="openDetails(item.raffle_id)"> -->
+                        <div class="item_pic">
+                          <img class="sort" [src]="item.image">
+                        </div>
+                        <div class="item_des">
+                          <h2>{{item.name}}</h2>
+                          <p>No. of Entry : <strong>{{item.no_of_winner}}</strong></p>
+                          <p>Drawing  Date : <strong>{{item.end_date}}</strong></p>
+                          <p>Entry Fees : <strong>${{item.fees}}</strong></p>
+                        </div>
+                    </div>
+                    <div  class="filter_item" *ngIf="privateList.length==0">
+                      <ion-label >
+                        <h2 class="text">No Data Found</h2>
+                    </ion-label>
+
+                    </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <!-- popup -->
+          <form [formGroup]="passwordForm">
+            <div *ngIf="passwordContent" class="popup_outer">
+              <div class="popup_area">
+        
+                  <div class="popup_details">
+                      <div class="close_popup" (click)="closePopupPassword()">
+                          <img class="fe_eye" src="../../assets/plus.png">
+                      </div>
+                      <!-- <h2 class="heading">Enter Password</h2> -->
+                      <ion-list class="bg-transparent adpadding">
+                          <p class="lableinfo">Enter Password</p>
+                          <ion-item color="none" lines="none" class="inputfield">
+                              <ion-input class="inputtext"  formControlName="raffle_pasword" placeholder="" ></ion-input>
+                          </ion-item>
+                          <ion-item color="none" lines="none">
+                              <button class="defbtn" (click)="submit()">Submit</button>
+                          </ion-item>
+        
+                      </ion-list>
+                  </div>
+              </div>
+          </div>
+        </form>
+         
+         
+      
+       
+        </div>
+    </ion-col>
+    </ion-row>
+
+
+  </ion-grid>
+
+
+</ion-content>

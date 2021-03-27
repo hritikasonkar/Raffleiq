@@ -1,0 +1,149 @@
+<ion-header class="headerinfo">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+      </ion-buttons>
+    <ion-title>Payment</ion-title>
+    <div class="header_right">
+      <div class="searchopt">
+        <img class="searchcont" src="../../assets/searchopt.png">
+      </div>
+      <div class="notfication">
+        <span>1</span>
+        <img  src="../../assets/notf.png">
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="contentinfo">
+  <ion-grid class="def_padding_bottom">
+      <form [formGroup]="stripeForm" (ngSubmit)="payWithStripe()">
+          <ion-row>
+              <ion-col>
+
+                  <ion-list class="bg-transparent adpadding">
+                    <div class="card_section">
+                      <p>Card Number</p>
+                        <h2><span>XXXX</span> - 7138 7895</h2>
+                        <p>Expiry Date</p>
+                        <h3>07/24</h3>
+                        <div class="checkopt_card">
+                          <img src="../../assets/checkopt.png" alt="" >
+                        </div>
+                    </div>
+                    <div class="card_type">
+                      <h3>Super Raffle</h3>
+                      <div class="card_type_opt">
+                        <p class="lableinfo2">Payment Type :</p>
+                        <ion-radio-group value="card"  class="redioopt">
+                          <ion-item color="none" lines="none">
+                            <ion-label class="lableinfo2">Card</ion-label>
+                            <ion-radio slot="start" (click)="setradio('card')" value="card"></ion-radio>
+                          </ion-item>
+                          <ion-item color="none" lines="none">
+                            <ion-label class="lableinfo2" >Cash</ion-label>
+                            <ion-radio slot="start" (click)="setradio('cash')" value="cash"></ion-radio>
+                          </ion-item>
+                        </ion-radio-group>
+                      </div>
+                    </div>
+
+
+                    <div class="card_info_details"  *ngIf="isSelected('card')">
+                      <p class="lableinfo">Card Number</p>
+                      <ion-item color="none" lines="none" class="inputfield">
+                          <ion-input class="inputtext" placeholder="****  ****   ****   *****"  formControlName="CardNumber" type="tel"></ion-input>
+                      </ion-item>
+                      <div class="message"
+                        
+                      *ngIf="stripeForm.controls.CardNumber.invalid && stripeForm.controls.CardNumber.touched || stripeForm.controls.CardNumber.hasError('pattern')"
+                    >
+                    <p>Please enter card number.</p>
+                    </div>
+                    <div class="message" *ngIf="stripeForm.controls.CardNumber.invalid && stripeForm.controls.CardNumber.touched && stripeForm.controls.CardNumber.hasError('pattern')">
+                      Card number length must be minimum 16 characters.
+                    </div>
+                  
+
+                      <div class="row_inp">
+                        <div class="row_inp_col">
+                          <p class="lableinfo">Expiry Month</p>
+                          <ion-item color="none" lines="none" class="inputfield">
+                              <ion-input class="inputtext" placeholder="MM"  formControlName="ExpMonth"  type="tel"></ion-input>
+                          </ion-item>
+
+                        </div>
+                        <!-- <div class="message"
+                        
+                      *ngIf="stripeForm.controls.ExpMonth.invalid && stripeForm.controls.ExpMonth.touched || stripeForm.controls.ExpMonth.hasError('pattern')"
+                    >
+                    <p>Please enter Exp. Month.</p>
+                    </div> -->
+                       
+                          <div class="row_inp_col">
+                            <p class="lableinfo">Expiry Year</p>
+                            <ion-item color="none" lines="none" class="inputfield">
+                                <ion-input class="inputtext" placeholder="YY"  formControlName="Expyear" type="tel"></ion-input>
+                            </ion-item>
+                            
+                          </div>
+                          <!-- <div class="message"
+                        
+                      *ngIf="stripeForm.controls.Expyear.invalid && stripeForm.controls.Expyear.touched || stripeForm.controls.Expyear.hasError('pattern')"
+                    >
+                    <p>Please enter Exp. Year.</p>
+                    </div> -->
+                        
+                        <div class="row_inp_col">
+                          <div class="cvvicon">
+                            <img  src="../../assets/cvv.png">
+                          </div>
+                          <p class="lableinfo">CVV</p>
+                          <ion-item color="none" lines="none" class="inputfield">
+                              <ion-input class="inputtext" placeholder="****"  formControlName="cvv" type="tel"></ion-input>
+                          </ion-item>
+                          
+                        </div>
+                        <!-- <div class="message"
+                        
+                        *ngIf="stripeForm.controls.cvv.invalid && stripeForm.controls.cvv.touched || stripeForm.controls.cvv.hasError('pattern')"
+                      >
+                      <p>Please enter CVV.</p>
+                      </div> -->
+
+                      </div>
+                      <!-- <div class="row_inp2">
+                          <ion-item color="none" lines="none" class="inputfield">
+                            <ion-label class="lableinfo" >Remember Me</ion-label>
+                            <ion-toggle slot="end" name="blueberry" checked></ion-toggle>
+                          </ion-item>
+                      </div> -->
+                      <ion-item color="none" lines="none">
+                        
+                        <button class="defbtn" >Pay ${{fees}}.00</button>
+                    </ion-item>
+                  </div>
+                  <div *ngIf="isSelected('cash')">
+                    <ion-item color="none" lines="none">
+                        
+                      <button class="defbtn"(click)="payCash()" >Pay ${{fees}}.00</button>
+                  </ion-item>
+
+                  </div>
+                  
+
+
+                   
+                  </ion-list>
+
+         
+
+              </ion-col>
+          </ion-row>
+      </form>
+
+  </ion-grid>
+
+</ion-content>
